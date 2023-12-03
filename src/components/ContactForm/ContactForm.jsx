@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-import { addContact } from 'redux/operations';
-import { Form } from 'components/App.styled';
+import { addContact } from 'redux/contacts/operations';
+import { Box, Button, Container, TextField, Typography } from '@mui/material';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -35,29 +35,47 @@ const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        type="text"
-        name="name"
-        value={name}
-        onChange={e => setName(e.target.value)}
-        required
-      />
-
-      <label htmlFor="number">Number</label>
-      <input
-        id="number"
-        type="tel"
-        name="number"
-        value={number}
-        onChange={e => setNumber(e.target.value)}
-        required
-      />
-
-      <button type="submit">Add contact</button>
-    </Form>
+    <Container component="main" maxWidth="xs">
+      <Box
+        sx={{
+          marginTop: 9,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Contact name"
+            name="name"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="number"
+            label="Contact Phone"
+            name="number"
+            value={number}
+            onChange={e => setNumber(e.target.value)}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Add contact
+          </Button>
+        </Box>
+      </Box>
+    </Container>
   );
 };
 

@@ -1,0 +1,11 @@
+.contactslink {
+  margin-right: 50px;
+  display: flex;
+
+  text-transform: uppercase;
+}
+
+.contactslink a {
+  color: white;
+  text-decoration: none;
+}

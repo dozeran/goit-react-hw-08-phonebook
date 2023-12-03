@@ -1,0 +1,11 @@
+.navlink {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.navlink a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
